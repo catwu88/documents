@@ -20,7 +20,6 @@ import {
   EyeOutlined,
   UserOutlined,
   ShopOutlined,
-  CalendarOutlined,
   HeartOutlined
 } from '@ant-design/icons';
 import { 
@@ -36,9 +35,7 @@ import {
   CartesianGrid, 
   Tooltip as RechartsTooltip, 
   Legend, 
-  ResponsiveContainer,
-  LineChart,
-  Line
+  ResponsiveContainer
 } from 'recharts';
 
 const { Option } = Select;

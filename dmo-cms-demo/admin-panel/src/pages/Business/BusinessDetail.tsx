@@ -121,7 +121,6 @@ const BusinessDetail: React.FC = () => {
   // AI文案美化功能
   const handleAiEnhanceBusiness = async () => {
     const currentDescription = form.getFieldValue('description');
-    const businessName = form.getFieldValue('name');
     const category = form.getFieldValue('category');
     
     if (!currentDescription || currentDescription.trim() === '') {

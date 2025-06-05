@@ -25,7 +25,7 @@ import {
 import { useLanguage } from '../../contexts/LanguageContext';
 import type { UploadProps } from 'antd';
 
-const { Title, Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 const { Dragger } = Upload;
 
 interface UploadRecord {
