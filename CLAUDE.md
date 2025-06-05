@@ -9,7 +9,7 @@ This is a DMO (Destination Management Organization) CMS demo project featuring a
 ## Key Commands
 
 ### Development Commands
-Working directory for all commands: `dmo-cms-demo/admin-panel/`
+Working directory for all commands: `admin-panel/`
 
 - **Start development server**: `npm run dev` (serves on http://localhost:5173)
 - **Build project**: `npm run build` (runs TypeScript compilation then Vite build)
@@ -33,25 +33,38 @@ Working directory for all commands: `dmo-cms-demo/admin-panel/`
 
 ### Project Structure
 ```
-admin-panel/src/
-├── components/
-│   ├── Layout/Layout.tsx        # Main application layout with sidebar
-│   └── Map/OpenStreetMap.tsx    # Map component for business locations
-├── contexts/
-│   └── LanguageContext.tsx     # Multi-language support (zh/en/ja)
-├── data/
-│   └── mockData.ts             # All mock data (businesses, events, metrics)
-├── pages/                      # Page components for each main feature
-│   ├── Analytics/              # Data visualization and reports
-│   ├── BatchUpload/            # Excel upload functionality
-│   ├── Business/               # Business management (list/detail)
-│   ├── Categories/             # Category management
-│   ├── Dashboard/              # Main dashboard with metrics
-│   ├── Event/                  # Event management (list/detail)
-│   ├── Labels/                 # Tag management
-│   └── Login/                  # Authentication page
-├── types/index.ts              # TypeScript type definitions
-└── App.tsx                     # Root component with routing
+/documents/
+├── README.md                   # Main project documentation
+├── CLAUDE.md                   # Development guidance for Claude Code
+├── docs/                       # Architecture and design documentation
+│   ├── dmo_backend_architecture.md
+│   ├── dmo_cms_architecture.md
+│   ├── dmo_cms_prd.md
+│   ├── dmo_frontend_architecture.md
+│   └── dmo_user_journey.md
+└── admin-panel/                # React admin application
+    ├── src/
+    │   ├── components/
+    │   │   ├── Layout/Layout.tsx        # Main application layout with sidebar
+    │   │   └── Map/OpenStreetMap.tsx    # Map component for business locations
+    │   ├── contexts/
+    │   │   └── LanguageContext.tsx     # Multi-language support (zh/en/ja)
+    │   ├── data/
+    │   │   └── mockData.ts             # All mock data (businesses, events, metrics)
+    │   ├── pages/                      # Page components for each main feature
+    │   │   ├── Analytics/              # Data visualization and reports
+    │   │   ├── BatchUpload/            # Excel upload functionality
+    │   │   ├── Business/               # Business management (list/detail)
+    │   │   ├── Categories/             # Category management
+    │   │   ├── Dashboard/              # Main dashboard with metrics
+    │   │   ├── Event/                  # Event management (list/detail)
+    │   │   ├── Labels/                 # Tag management
+    │   │   └── Login/                  # Authentication page
+    │   ├── types/index.ts              # TypeScript type definitions
+    │   └── App.tsx                     # Root component with routing
+    ├── package.json
+    ├── vite.config.ts
+    └── ...                             # Other config files
 ```
 
 ### Core Data Models
