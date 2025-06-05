@@ -11,9 +11,6 @@
 ### 安裝與運行
 
 ```bash
-# 進入項目目錄
-cd admin-panel
-
 # 安裝依賴
 npm install
 
@@ -22,6 +19,15 @@ npm run dev
 ```
 
 訪問 http://localhost:5173 查看演示
+
+### 部署到 GitHub Pages
+
+```bash
+# 自動構建並部署到 GitHub Pages
+npm run deploy
+```
+
+部署完成後，可在以下網址訪問：https://catwu88.github.io/documents/
 
 ### 登入資訊
 - **帳號**: `admin`

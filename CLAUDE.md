@@ -15,6 +15,7 @@ Working directory for all commands: Root directory (contains package.json)
 - **Build project**: `npm run build` (runs TypeScript compilation then Vite build)
 - **Lint code**: `npm run lint`
 - **Preview production build**: `npm run preview`
+- **Deploy to GitHub Pages**: `npm run deploy` (builds and deploys to gh-pages branch)
 
 ### Login Credentials
 - Username: `admin`
