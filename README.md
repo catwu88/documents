@@ -2,15 +2,27 @@
 
 這是一個基於 React + TypeScript + Ant Design 的目的地管理系統（Destination Management Organization CMS）演示項目。
 
+## 🌐 線上演示
+
+**Live Demo**: https://catwu88.github.io/documents/
+
+### 登入資訊
+- **帳號**: `admin`
+- **密碼**: `admin123`
+
 ## 🚀 快速開始
 
 ### 前置需求
 - Node.js 16+ 
 - npm 或 yarn
 
-### 安裝與運行
+### 本地開發
 
 ```bash
+# 克隆項目
+git clone https://github.com/catwu88/documents.git
+cd documents
+
 # 安裝依賴
 npm install
 
@@ -18,20 +30,65 @@ npm install
 npm run dev
 ```
 
-訪問 http://localhost:5173 查看演示
+開發服務器將在 http://localhost:5173 啟動
 
-### 部署到 GitHub Pages
+### 可用命令
 
 ```bash
-# 自動構建並部署到 GitHub Pages
-npm run deploy
+# 開發
+npm run dev          # 啟動開發服務器
+
+# 構建
+npm run build        # 構建生產版本
+npm run preview      # 預覽生產構建
+
+# 代碼質量
+npm run lint         # 運行 ESLint 檢查
+
+# 部署
+npm run deploy       # 自動構建並部署到 GitHub Pages
 ```
 
-部署完成後，可在以下網址訪問：https://catwu88.github.io/documents/
+## 📁 項目結構
 
-### 登入資訊
-- **帳號**: `admin`
-- **密碼**: `admin123`
+經過重構，項目現在採用扁平化結構：
+
+```
+documents/ (項目根目錄)
+├── README.md                       # 項目文檔
+├── CLAUDE.md                       # 開發指南
+├── admin-panel-README.md           # 原始 admin-panel 文檔
+├── package.json                    # 項目配置
+├── vite.config.ts                  # Vite 構建配置
+├── tsconfig.json                   # TypeScript 配置
+├── docs/                           # 架構文檔
+│   ├── dmo_backend_architecture.md
+│   ├── dmo_cms_architecture.md
+│   ├── dmo_cms_prd.md
+│   ├── dmo_frontend_architecture.md
+│   └── dmo_user_journey.md
+├── src/                            # React 應用源碼
+│   ├── components/                 # 共用組件
+│   │   ├── Layout/Layout.tsx       # 主要佈局組件
+│   │   └── Map/OpenStreetMap.tsx   # 地圖組件
+│   ├── contexts/                   # React Context
+│   │   └── LanguageContext.tsx     # 多語言支持
+│   ├── pages/                      # 頁面組件
+│   │   ├── Dashboard/              # 儀表板
+│   │   ├── Business/               # 商家管理
+│   │   ├── Event/                  # 活動管理
+│   │   ├── Analytics/              # 數據分析
+│   │   ├── BatchUpload/            # 批量上傳
+│   │   ├── Categories/             # 分類管理
+│   │   ├── Labels/                 # 標籤管理
+│   │   └── Login/                  # 登入頁面
+│   ├── data/mockData.ts            # 模擬數據
+│   ├── types/index.ts              # TypeScript 類型
+│   ├── App.tsx                     # 根組件
+│   └── main.tsx                    # 應用入口
+└── public/                         # 靜態資源
+    └── vite.svg
+```
 
 ## 📋 功能特色
 
@@ -68,31 +125,26 @@ npm run deploy
 
 ### 前端技術棧
 - **React 18**: 現代化 React 框架
-- **TypeScript**: 類型安全的 JavaScript
-- **Vite**: 快速的構建工具
-- **Ant Design**: 企業級 UI 組件庫
-- **React Router**: 單頁應用路由
+- **TypeScript**: 類型安全的 JavaScript  
+- **Vite**: 快速的構建工具與開發服務器
+- **Ant Design 5.x**: 企業級 UI 組件庫
+- **React Router v7**: 單頁應用路由管理
+- **Leaflet**: 開源地圖組件 (OpenStreetMap)
 - **Recharts**: 數據可視化圖表庫
-- **Day.js**: 輕量級日期處理庫
+- **Lucide React**: 現代化圖標庫
 
-### 項目結構
-```
-admin-panel/
-├── src/
-│   ├── components/          # 共用組件
-│   │   └── Layout/         # 主要佈局組件
-│   ├── pages/              # 頁面組件
-│   │   ├── Dashboard/      # 儀表板
-│   │   ├── Business/       # 商家管理
-│   │   ├── Event/          # 活動管理
-│   │   ├── Analytics/      # 數據分析
-│   │   └── Login/          # 登入頁面
-│   ├── data/               # 模擬數據
-│   ├── types/              # TypeScript 類型定義
-│   └── App.tsx             # 主應用組件
-├── package.json
-└── README.md
-```
+### 多語言支持
+- **繁體中文** (默認)
+- **English** 
+- **日本語**
+- 使用 React Context 進行語言狀態管理
+- Ant Design 本地化集成
+
+### 部署配置
+- **GitHub Pages**: 自動化部署
+- **gh-pages**: 部署工具
+- **Base Path**: `/documents/` (適配 GitHub Pages)
+- **Live URL**: https://catwu88.github.io/documents/
 
 ## 🎨 設計特色
 
@@ -133,26 +185,67 @@ admin-panel/
 
 ## 🔧 開發說明
 
-### 模擬數據
-- 所有數據都是模擬生成，用於演示目的
-- 登入驗證使用本地存儲模擬
-- API 調用使用 Promise 模擬異步操作
+### 項目特點
+- **扁平化結構**: 項目重構為根目錄直接包含源碼
+- **模擬數據**: 所有數據都是模擬生成，用於演示目的
+- **本地認證**: 登入驗證使用 localStorage 模擬
+- **異步模擬**: API 調用使用 Promise + setTimeout 模擬網絡延遲
 
 ### 自定義配置
-- 可在 `src/data/mockData.ts` 修改模擬數據
-- 可在 `src/types/index.ts` 調整數據結構
-- 支援主題色彩自定義
+- **模擬數據**: 修改 `src/data/mockData.ts`
+- **類型定義**: 調整 `src/types/index.ts`
+- **主題配置**: Ant Design 默認主題
+- **語言設置**: 在 `src/contexts/LanguageContext.tsx` 管理
 
-## 📝 注意事項
+### 代碼質量
+- **TypeScript**: 全項目類型安全
+- **ESLint**: 代碼規範檢查
+- **現代化**: 使用 ES6+ 語法和 React Hooks
 
-- 這是一個演示項目，不包含真實的後端 API
-- 數據不會持久化保存
-- 部分功能為演示用途，顯示「功能開發中」提示
-- 建議在現代瀏覽器中使用以獲得最佳體驗
+## 📝 重要說明
+
+### 演示限制
+- 這是一個純前端演示項目，**不包含真實後端 API**
+- 數據**不會持久化保存**，刷新頁面後重置
+- 部分功能顯示「功能開發中」提示
+- 推薦使用現代瀏覽器以獲得最佳體驗
+
+### 項目歷史
+- **v1.0**: 初始版本，嵌套目錄結構
+- **v2.0**: 項目重構，扁平化目錄結構
+- **v3.0**: 添加 GitHub Pages 自動部署
+
+## 📚 相關文檔
+
+### 架構文檔
+項目包含完整的架構設計文檔，位於 `docs/` 目錄：
+
+- **[系統架構](docs/dmo_cms_architecture.md)**: 整體系統設計
+- **[前端架構](docs/dmo_frontend_architecture.md)**: 前端技術架構
+- **[後端架構](docs/dmo_backend_architecture.md)**: 後端設計方案
+- **[產品需求](docs/dmo_cms_prd.md)**: 完整產品需求文檔
+- **[用戶旅程](docs/dmo_user_journey.md)**: 用戶體驗設計
+
+### 開發指南
+- **[CLAUDE.md](CLAUDE.md)**: Claude Code 開發指南
+- **[Admin Panel README](admin-panel-README.md)**: 原始組件文檔
+
+## 🚀 快速體驗
+
+1. **線上體驗**: 直接訪問 [Live Demo](https://catwu88.github.io/documents/)
+2. **本地開發**: 克隆項目後運行 `npm install && npm run dev`
+3. **一鍵部署**: 運行 `npm run deploy` 部署到 GitHub Pages
 
 ## 🤝 貢獻
 
 歡迎提交 Issue 和 Pull Request 來改進這個演示項目。
+
+### 開發流程
+1. Fork 本項目
+2. 創建功能分支: `git checkout -b feature/your-feature`
+3. 提交更改: `git commit -am 'Add some feature'`
+4. 推送到分支: `git push origin feature/your-feature`
+5. 提交 Pull Request
 
 ## 📄 授權
 
@@ -160,4 +253,12 @@ MIT License
 
 ---
 
-**DMO CMS Demo** - 展示現代化目的地管理系統的完整功能與用戶體驗 
+**DMO CMS Demo** - 展示現代化目的地管理系統的完整功能與用戶體驗
+
+### 🌟 項目亮點
+- ✅ **現代化技術棧**: React 18 + TypeScript + Vite
+- ✅ **響應式設計**: 支持桌面和移動設備
+- ✅ **多語言支持**: 中文/English/日本語
+- ✅ **自動化部署**: GitHub Pages 一鍵部署
+- ✅ **完整文檔**: 詳細的架構和開發文檔
+- ✅ **演示數據**: 豐富的模擬數據展示功能
